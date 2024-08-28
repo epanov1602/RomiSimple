@@ -22,11 +22,13 @@ class Drivetrain(commands2.Subsystem):
         # The Romi has the left and right motors set to
         # PWM channels 0 and 1 respectively
         self.leftMotor = wpilib.Spark(0)
+        self.leftMotor.setInverted(True)
         self.rightMotor = wpilib.Spark(1)
 
         # The Romi has onboard encoders that are hardcoded
         # to use DIO pins 4/5 and 6/7 for the left and right
         self.leftEncoder = wpilib.Encoder(4, 5)
+        self.leftEncoder.setReverseDirection(True)
         self.rightEncoder = wpilib.Encoder(6, 7)
 
         # Set up the differential drive controller
